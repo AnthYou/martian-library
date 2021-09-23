@@ -13,7 +13,8 @@ module Types
           description: "Returns a list of items in the martian library"
 
     def items
-      Item.all
+      # Item.all ### too many queries for user
+      Item.preload(:user) ### resolves N+1 queries, but not useful when we don't need user
     end
   end
 end
