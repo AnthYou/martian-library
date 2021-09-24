@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Query } from "react-apollo";
 import { LibraryQuery } from "./operations.graphql";
+import UpdateItemForm from "../UpdateItemForm";
 import cs from "./styles";
 
 const Library = () => {
@@ -25,6 +26,18 @@ const Library = () => {
                   ) : null}
                 </button>
               ))}
+
+              {
+                item !== null && (
+                  <UpdateItemForm
+                    id={item.id}
+                    initialTitle={item.title}
+                    initialDescription={item.description}
+                    initialImageUrl={item.imageUrl}
+                    onClose={() => setItem(null)}
+                  />
+                )
+              }
         </div>
       )}
     </Query>
