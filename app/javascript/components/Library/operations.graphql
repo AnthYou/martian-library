@@ -2,7 +2,7 @@
 
 query LibraryQuery {
   items {
-    ... ItemFragment
+    ...ItemFragment
     user {
       id
       email

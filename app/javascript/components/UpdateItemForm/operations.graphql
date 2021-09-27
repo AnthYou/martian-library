@@ -15,7 +15,7 @@ mutation UpdateItemMutation(
     }
   ) {
     item {
-      ... ItemFragment
+      ...ItemFragment
     }
 
     errors {
