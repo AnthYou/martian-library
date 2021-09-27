@@ -6,20 +6,17 @@ module Mutations
     argument :image_url, String, required: false
 
     field :item, Types::ItemType, null: true
-    field :errors, [String], null: false
+    field :errors, Types::ValidationErrorsType, null: true
 
     def resolve(id:, title:, description: nil, image_url: nil)
-      if context[:current_user].nil?
-        raise GraphQL::ExecutionError,
-              "You need to authenticate to perform this action"
-      end
+      check_authentication!
 
       item = Item.find(id)
 
       if item.update(title: title, description: description, image_url: image_url)
         { item: item }
       else
-        { errors: item.errors.full_messages }
+        { errors: item.errors }
       end
     end
   end

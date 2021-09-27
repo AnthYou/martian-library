@@ -42,9 +42,10 @@ const UpdateItemForm = ({
                       title,
                       description,
                       imageUrl
-                    }
-                  }
-                }
+                    },
+                    errors: null,
+                  },
+                },
               }).then(({ data }) => {
                 onErrors(data.updateItem.errors);
               });
