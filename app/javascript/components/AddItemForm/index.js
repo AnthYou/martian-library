@@ -6,7 +6,7 @@ import { LibraryQuery } from "../Library/operations.graphql";
 
 const AddItemForm = () => (
   <Mutation mutation={AddItemMutation}>
-    {(addItem, { loading }) => (
+    {(addItem, { loading, data }) => (
       <ProcessItemForm
         buttonText="Add Item"
         loading={loading}
