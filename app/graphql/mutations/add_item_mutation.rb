@@ -20,7 +20,7 @@ module Mutations
       if item.save
         { item: item }
       else
-        { errors: item.errors.full_messages }
+        { errors: item.errors }
       end
     end
   end
