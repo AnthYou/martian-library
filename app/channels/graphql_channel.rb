@@ -8,7 +8,7 @@ class GraphqlChannel < ApplicationCable::Channel
     result = execute_query(data)
 
     payload = {
-      result: result.subscription? ? { data: nil } : result.to_h
+      result: result.subscription? ? { data: nil } : result.to_h,
       more: result.subscription?
     }
 

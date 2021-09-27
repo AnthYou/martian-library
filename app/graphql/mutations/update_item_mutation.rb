@@ -9,7 +9,7 @@ module Mutations
     field :item, Types::ItemType, null: true
     field :errors, Types::ValidationErrorsType, null: true
 
-    def resolve(id:, title:, description: nil, image_url: nil)
+    def resolve(id:, attributes:)
       check_authentication!
 
       item = Item.find(id)
